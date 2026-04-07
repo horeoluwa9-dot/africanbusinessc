@@ -1,78 +1,113 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
-const navLinks = ["About", "Programs", "Learning", "Simulation Labs", "Faculty", "Admissions"];
+const navLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Programs", href: "/programs" },
+  { label: "Learning", href: "/#learning" },
+  { label: "Simulation Labs", href: "/simulation-labs" },
+  { label: "Faculty", href: "/faculty" },
+  { label: "Community", href: "/community" },
+  { label: "Partnerships", href: "/partnerships" },
+];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  const isRoute = (href: string) => {
+    if (href.startsWith("/#")) return false;
+    return location.pathname === href;
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-3">
       <div className="mx-auto max-w-7xl flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-            <span className="font-sans font-semibold text-sm text-primary-foreground">ABC</span>
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
+            <span className="font-sans font-semibold text-xs text-primary-foreground">ABC</span>
           </div>
-          <span className="font-serif text-xl font-light text-foreground tracking-tight">
+          <span className="font-serif text-lg font-light text-foreground tracking-tight">
             Africa Business College
           </span>
+        </Link>
+
+        <div className="hidden xl:flex items-center gap-0.5 rounded-full px-1.5 py-1 backdrop-blur-lg" style={{ backgroundColor: 'rgba(231,229,228,0.05)' }}>
+          {navLinks.map((link) =>
+            link.href.startsWith("/") && !link.href.startsWith("/#") ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
+                  isRoute(link.href)
+                    ? "bg-foreground text-background"
+                    : "text-foreground/70 hover:bg-foreground hover:text-background"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="px-3.5 py-1.5 rounded-full text-xs font-sans font-medium text-foreground/70 transition-all duration-300 hover:bg-foreground hover:text-background"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
 
-        {/* Center pill nav - desktop */}
-        <div className="hidden lg:flex items-center gap-1 rounded-full px-2 py-1.5 backdrop-blur-lg" style={{ backgroundColor: 'rgba(231,229,228,0.05)' }}>
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-              className="px-4 py-2 rounded-full text-sm font-sans font-medium text-foreground/70 transition-all duration-300 hover:bg-foreground hover:text-background"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-
-        {/* Right CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="#login" className="text-sm font-sans font-medium text-foreground/60 hover:text-foreground transition-colors duration-300">
+        <div className="hidden xl:flex items-center gap-3">
+          <Link to="/dashboard" className="text-xs font-sans font-medium text-foreground/60 hover:text-foreground transition-colors duration-300">
             Login
-          </a>
-          <a
-            href="#apply"
-            className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full text-sm font-sans font-semibold transition-all duration-300 hover:scale-105"
+          </Link>
+          <Link
+            to="/programs"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-xs font-sans font-semibold transition-all duration-300 hover:scale-105"
           >
             Apply Now
-          </a>
+          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className="lg:hidden text-foreground"
+          className="xl:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="lg:hidden mt-4 rounded-3xl p-6 backdrop-blur-xl" style={{ backgroundColor: 'rgba(28,25,23,0.95)' }}>
-          <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-                className="px-4 py-3 rounded-2xl text-base font-sans text-foreground/80 hover:bg-foreground/10 transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link}
-              </a>
-            ))}
-            <div className="mt-4 pt-4 border-t border-foreground/10 flex flex-col gap-3">
-              <a href="#login" className="text-center text-sm font-sans text-foreground/60">Login</a>
-              <a href="#apply" className="bg-primary text-primary-foreground px-6 py-3 rounded-full text-center text-sm font-sans font-semibold">
+        <div className="xl:hidden mt-3 rounded-2xl p-5 backdrop-blur-xl" style={{ backgroundColor: 'rgba(28,25,23,0.95)' }}>
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) =>
+              link.href.startsWith("/") && !link.href.startsWith("/#") ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="px-4 py-2.5 rounded-xl text-sm font-sans text-foreground/80 hover:bg-foreground/10 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="px-4 py-2.5 rounded-xl text-sm font-sans text-foreground/80 hover:bg-foreground/10 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+            <div className="mt-3 pt-3 border-t border-foreground/10 flex flex-col gap-2">
+              <Link to="/dashboard" className="text-center text-xs font-sans text-foreground/60" onClick={() => setMobileOpen(false)}>Login</Link>
+              <Link to="/programs" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-center text-xs font-sans font-semibold" onClick={() => setMobileOpen(false)}>
                 Apply Now
-              </a>
+              </Link>
             </div>
           </div>
         </div>
