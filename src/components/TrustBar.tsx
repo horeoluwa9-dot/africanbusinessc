@@ -7,12 +7,12 @@ const stats = [
 ];
 
 const TrustBar = () => (
-  <section className="py-12 px-6 border-y border-foreground/5">
-    <div className="mx-auto max-w-7xl flex flex-wrap justify-between gap-8">
+  <section className="py-10 px-4 md:px-6 border-y border-foreground/5">
+    <div className="mx-auto max-w-7xl flex flex-wrap justify-between gap-6">
       {stats.map((stat) => (
-        <div key={stat.label} className="flex flex-col items-center gap-1 min-w-[120px]">
-          <span className="font-serif text-3xl font-light text-primary">{stat.value}</span>
-          <span className="font-sans text-sm text-foreground/50">{stat.label}</span>
+        <div key={stat.label} className="flex flex-col items-center gap-0.5 min-w-[100px]">
+          <span className="font-serif text-2xl font-light text-primary">{stat.value}</span>
+          <span className="font-sans text-xs text-foreground/50">{stat.label}</span>
         </div>
       ))}
     </div>
