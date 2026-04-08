@@ -57,7 +57,7 @@ const SimulationLabs = () => (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
             {[
               { label: "Market Share", val: "23.4%", change: "+2.1%" },
-              { label: "Revenue", val: "$340K", change: "+12%" },
+              { label: "Revenue", val: "₦340K", change: "+12%" },
               { label: "Team Size", val: "18", change: "+3" },
               { label: "Runway", val: "14mo", change: "-2mo" },
             ].map((m) => (
@@ -234,7 +234,7 @@ const SimulationLabs = () => (
         </h2>
         <div className="border border-foreground/5 rounded-2xl p-6 bg-card">
           <p className="font-serif italic text-base text-foreground/80 mb-4 leading-relaxed">
-            "You are leading a startup entering a new East African market. Your product has traction in Nigeria, but the regulatory environment, consumer behavior, and competitive landscape are entirely different. You have $500K in runway and 6 months to prove product-market fit."
+            "You are leading a startup entering a new East African market. Your product has traction in Nigeria, but the regulatory environment, consumer behavior, and competitive landscape are entirely different. "You are leading a startup entering a new East African market. Your product has traction in Nigeria, but the regulatory environment, consumer behavior, and competitive landscape are entirely different. You have ₦500M in runway and 6 months to prove product-market fit." and 6 months to prove product-market fit."
           </p>
           <div className="space-y-3 mt-6">
             <div className="flex items-start gap-3">
