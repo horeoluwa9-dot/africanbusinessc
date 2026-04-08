@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 
 const communityElements = [
-  { icon: Users, title: "Alumni Network", desc: "Stay connected beyond your program" },
-  { icon: Rocket, title: "Founder Community", desc: "Connect with builders and entrepreneurs" },
-  { icon: Award, title: "Investor Connections", desc: "Access to funding networks" },
-  { icon: Globe, title: "Regional Meetups", desc: "In-person connections across cities" },
-  { icon: Star, title: "Venture Showcases", desc: "Present and discover startups" },
+  { icon: Users, title: "Alumni Network", desc: "Stay connected beyond your program with lifelong peer access." },
+  { icon: Rocket, title: "Founder Community", desc: "Connect with builders and entrepreneurs across Africa." },
+  { icon: Award, title: "Investor Connections", desc: "Access to funding networks and venture capital." },
+  { icon: Globe, title: "Regional Meetups", desc: "In-person connections across major African cities." },
+  { icon: Star, title: "Venture Showcases", desc: "Present and discover startups from the ABC ecosystem." },
+];
+
+const ventures = [
+  { name: "NovaPay", founder: "Amara Osei · Cohort 2025", desc: "Digital payments platform serving 500K+ users across West Africa." },
+  { name: "GreenFields", founder: "Fatima Al-Hassan · Cohort 2025", desc: "AgTech company improving crop yields for smallholder farmers." },
+  { name: "AfriHealth", founder: "David Mensah · Cohort 2024", desc: "Telemedicine platform connecting 100K+ patients to specialists." },
 ];
 
 const testimonials = [
-  { quote: "The ABC community became my closest advisors. We still meet monthly to share progress.", name: "Kemi A.", role: "Founder, Accra" },
-  { quote: "I found my co-founder through the ABC network. The connections here are genuine and lasting.", name: "Samuel O.", role: "CTO, Kigali" },
-  { quote: "Being part of this community gave me confidence to launch my second venture.", name: "Nadia B.", role: "Serial Entrepreneur, Casablanca" },
+  { quote: "The alumni network alone was worth the investment. I found my co-founder through ABC.", name: "Kofi Adu", role: "Co-Founder, AgriFlow", program: "MBA 2025" },
+  { quote: "ABC's community is unlike any other — diverse, ambitious, and genuinely supportive.", name: "Zainab Musa", role: "Director, ImpactHub Lagos", program: "Executive 2024" },
+  { quote: "From day one, I was connected to investors, mentors, and peers who accelerated my journey.", name: "Pierre Habimana", role: "CEO, KigaliTech", program: "Entrepreneurship 2025" },
 ];
 
 const Community = () => (
@@ -21,7 +27,7 @@ const Community = () => (
     {/* Hero */}
     <section className="pt-24 pb-16 px-4 md:px-6">
       <div className="mx-auto max-w-7xl text-left">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Community & Alumni</span>
+        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Community</span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-foreground mt-3 max-w-3xl">
           Join a Community of <em className="font-serif italic text-primary">Builders</em>
         </h1>
@@ -39,15 +45,33 @@ const Community = () => (
       </div>
     </section>
 
+    {/* Stats */}
+    <section className="px-4 md:px-6 pb-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            { val: "2,500+", label: "Alumni Network" },
+            { val: "40+", label: "African Countries" },
+            { val: "150+", label: "Ventures Launched" },
+            { val: "₦8B+", label: "Capital Raised" },
+          ].map((s) => (
+            <div key={s.label} className="border border-foreground/5 rounded-2xl p-5 bg-card text-center">
+              <p className="font-serif text-2xl text-primary">{s.val}</p>
+              <p className="font-sans text-xs text-foreground/50 mt-1">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* What You Join */}
     <section className="px-4 md:px-6 pb-16">
       <div className="mx-auto max-w-7xl">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Network</span>
-        <h2 className="text-3xl md:text-4xl text-foreground mt-2 mb-4">
+        <h2 className="text-3xl md:text-4xl text-foreground mb-4">
           What You <em className="font-serif italic">Join</em>
         </h2>
         <p className="font-sans text-sm text-foreground/60 max-w-2xl">
-          When you join ABC, you become part of a network of founders and operators who are actively building across the continent. It's a collaborative learning environment designed for long-term relationships and mutual growth.
+          A network of founders and operators committed to building in Africa. The ABC community provides collaborative learning, long-term relationships, and access to resources that accelerate your journey.
         </p>
       </div>
     </section>
@@ -56,8 +80,7 @@ const Community = () => (
     <section className="px-4 md:px-6 py-16 bg-card relative">
       <div className="serrated-edge bg-background absolute top-0 left-0 right-0" />
       <div className="mx-auto max-w-7xl pt-4">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Inside</span>
-        <h2 className="text-3xl md:text-4xl text-foreground mt-2 mb-8">
+        <h2 className="text-3xl md:text-4xl text-foreground mb-8">
           Inside the ABC <em className="font-serif italic">Community</em>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -73,19 +96,18 @@ const Community = () => (
       <div className="serrated-edge bg-background absolute bottom-0 left-0 right-0 rotate-180" />
     </section>
 
-    {/* Cohort Experience */}
+    {/* Cohort + Pan-African */}
     <section className="px-4 md:px-6 py-16">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
-          <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Cohort</span>
-          <h2 className="text-3xl text-foreground mt-2 mb-4">
+          <h2 className="text-3xl text-foreground mb-4">
             Learn <em className="font-serif italic">Together</em>
           </h2>
           <p className="font-sans text-sm text-foreground/60 mb-4">
-            Every program is cohort-based, meaning you learn alongside a group of peers who hold you accountable and push you forward.
+            The cohort experience creates deep bonds through shared learning, collaboration, and accountability.
           </p>
           <ul className="space-y-2">
-            {["Peer collaboration on real projects", "Group discussions and debates", "Built-in accountability structures", "Shared progress milestones"].map((item) => (
+            {["Peer collaboration & group projects", "Structured discussions & debates", "Shared accountability", "Cross-border networking"].map((item) => (
               <li key={item} className="flex items-start gap-2 text-foreground/60 font-sans text-xs">
                 <Check size={14} className="text-primary mt-0.5 shrink-0" />
                 {item}
@@ -94,25 +116,20 @@ const Community = () => (
           </ul>
         </div>
         <div>
-          <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Pan-African</span>
-          <h2 className="text-3xl text-foreground mt-2 mb-4">
+          <h2 className="text-3xl text-foreground mb-4">
             A Pan-African <em className="font-serif italic">Network</em>
           </h2>
           <p className="font-sans text-sm text-foreground/60 mb-4">
-            Our students come from across the continent — Nigeria, Kenya, South Africa, Ghana, Rwanda, Senegal, and beyond. This diversity of perspectives is one of our greatest strengths.
+            Students from over 30 African countries collaborate, share perspectives, and build cross-border relationships that last beyond the classroom.
           </p>
-          <div className="grid grid-cols-3 gap-2">
-            {[
-              { val: "12+", label: "Countries" },
-              { val: "500+", label: "Alumni" },
-              { val: "50+", label: "Cities" },
-            ].map((s) => (
-              <div key={s.label} className="border border-foreground/5 rounded-xl p-3 bg-card text-center">
-                <p className="font-serif text-xl text-primary">{s.val}</p>
-                <p className="font-sans text-[10px] text-foreground/50">{s.label}</p>
-              </div>
+          <ul className="space-y-2">
+            {["Multi-country representation", "Cross-border collaboration", "Diverse perspectives", "Regional chapters"].map((item) => (
+              <li key={item} className="flex items-start gap-2 text-foreground/60 font-sans text-xs">
+                <Check size={14} className="text-primary mt-0.5 shrink-0" />
+                {item}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
@@ -121,20 +138,15 @@ const Community = () => (
     <section className="px-4 md:px-6 py-16 bg-card relative">
       <div className="serrated-edge bg-background absolute top-0 left-0 right-0" />
       <div className="mx-auto max-w-7xl pt-4">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Impact</span>
-        <h2 className="text-3xl md:text-4xl text-foreground mt-2 mb-8">
+        <h2 className="text-3xl md:text-4xl text-foreground mb-8">
           What Our Community <em className="font-serif italic">Builds</em>
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            { val: "120+", label: "Startups launched" },
-            { val: "85%", label: "Careers advanced" },
-            { val: "200+", label: "Partnerships formed" },
-            { val: "$5M+", label: "Investments secured" },
-          ].map((s) => (
-            <div key={s.label} className="border border-foreground/5 rounded-2xl p-5 bg-background/50 text-center">
-              <p className="font-serif text-2xl text-primary">{s.val}</p>
-              <p className="font-sans text-xs text-foreground/50 mt-1">{s.label}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {ventures.map((v) => (
+            <div key={v.name} className="border border-foreground/5 rounded-2xl p-5 bg-background/50">
+              <h3 className="text-lg text-foreground font-light mb-1">{v.name}</h3>
+              <p className="font-sans text-[10px] text-primary mb-2">{v.founder}</p>
+              <p className="font-sans text-xs text-foreground/50">{v.desc}</p>
             </div>
           ))}
         </div>
@@ -142,44 +154,43 @@ const Community = () => (
       <div className="serrated-edge bg-background absolute bottom-0 left-0 right-0 rotate-180" />
     </section>
 
-    {/* Events */}
+    {/* Testimonials */}
     <section className="px-4 md:px-6 py-16">
       <div className="mx-auto max-w-7xl">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Events</span>
-        <h2 className="text-3xl md:text-4xl text-foreground mt-2 mb-8">
-          Community <em className="font-serif italic">Events</em>
+        <h2 className="text-3xl md:text-4xl text-foreground mb-8">
+          Voices From the <em className="font-serif italic">Community</em>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {[
-            { icon: Calendar, title: "Virtual Sessions", desc: "Regular online gatherings and workshops" },
-            { icon: MessageSquare, title: "Founder Talks", desc: "Hear from successful African founders" },
-            { icon: Users, title: "Workshops", desc: "Hands-on skill-building sessions" },
-            { icon: Globe, title: "Networking Events", desc: "Connect with peers across the continent" },
-          ].map((e) => (
-            <div key={e.title} className="border border-foreground/5 rounded-2xl p-5 bg-card">
-              <e.icon className="text-primary mb-3" size={24} strokeWidth={1.5} />
-              <h3 className="text-base text-foreground font-light mb-1.5">{e.title}</h3>
-              <p className="font-sans text-xs text-foreground/50">{e.desc}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {testimonials.map((t) => (
+            <div key={t.name} className="border border-foreground/5 rounded-2xl p-5 bg-card">
+              <p className="font-serif italic text-sm text-foreground/80 mb-4">"{t.quote}"</p>
+              <p className="font-sans text-xs font-medium text-foreground">{t.name}</p>
+              <p className="font-sans text-[10px] text-foreground/50">{t.role}</p>
+              <p className="font-sans text-[10px] text-primary mt-1">{t.program}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* Testimonials */}
+    {/* Community Events */}
     <section className="px-4 md:px-6 py-16 bg-card relative">
       <div className="serrated-edge bg-background absolute top-0 left-0 right-0" />
       <div className="mx-auto max-w-7xl pt-4">
-        <span className="font-sans text-xs font-medium text-primary tracking-wider uppercase">Voices</span>
-        <h2 className="text-3xl md:text-4xl text-foreground mt-2 mb-8">
-          Voices From the <em className="font-serif italic">Community</em>
+        <h2 className="text-3xl md:text-4xl text-foreground mb-8">
+          Community <em className="font-serif italic">Events</em>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {testimonials.map((t) => (
-            <div key={t.name} className="border border-foreground/5 rounded-2xl p-5 bg-background/50">
-              <p className="font-serif italic text-sm text-foreground/80 mb-4">"{t.quote}"</p>
-              <p className="font-sans text-xs font-medium text-foreground">{t.name}</p>
-              <p className="font-sans text-[10px] text-foreground/50">{t.role}</p>
+          {[
+            { type: "Networking", title: "Alumni Mixer: Nairobi", date: "May 20, 2026", location: "Nairobi" },
+            { type: "Event", title: "Founder Pitch Night", date: "June 5, 2026", location: "Virtual" },
+            { type: "Conference", title: "Investor Connect", date: "June 15, 2026", location: "Lagos" },
+          ].map((e) => (
+            <div key={e.title} className="border border-foreground/5 rounded-2xl p-5 bg-background/50">
+              <span className="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-sans font-medium">{e.type}</span>
+              <h3 className="text-base text-foreground font-light mt-3 mb-2">{e.title}</h3>
+              <p className="font-sans text-xs text-foreground/40">{e.date}</p>
+              <p className="font-sans text-[10px] text-foreground/30">{e.location}</p>
             </div>
           ))}
         </div>
@@ -193,7 +204,8 @@ const Community = () => (
         <h2 className="text-3xl md:text-4xl text-foreground mb-4">
           Build With People Who Are <em className="font-serif italic">Building</em>
         </h2>
-        <div className="flex flex-wrap justify-center gap-3 mt-8">
+        <p className="font-sans text-sm text-foreground/60 mb-8">Join the next cohort</p>
+        <div className="flex flex-wrap justify-center gap-3">
           <Link to="/programs" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105">
             Apply Now
           </Link>
