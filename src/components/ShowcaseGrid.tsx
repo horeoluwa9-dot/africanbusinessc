@@ -29,7 +29,7 @@ const ShowcaseGrid = () => (
       </div>
 
       <div className="flex flex-wrap gap-3 mb-8">
-        <Link to="/programs" className="text-primary font-sans text-xs font-medium hover:underline">Explore Learning →</Link>
+        <Link to="/learning" className="text-primary font-sans text-xs font-medium hover:underline">Explore Learning →</Link>
         <Link to="/simulation-labs" className="text-primary font-sans text-xs font-medium hover:underline">View Simulations →</Link>
       </div>
 

@@ -143,7 +143,7 @@ const StickyNoteCTA = () => {
                 <h3 className="text-base text-foreground font-light mt-3 mb-2">{e.title}</h3>
                 <p className="font-sans text-xs text-foreground/40">{e.date}</p>
                 <p className="font-sans text-[10px] text-foreground/30">{e.location}</p>
-                <Link to="/programs" className="mt-3 inline-block text-primary font-sans text-xs font-medium">Register →</Link>
+                <Link to="/admissions" className="mt-3 inline-block text-primary font-sans text-xs font-medium">Register →</Link>
               </div>
             ))}
           </div>
