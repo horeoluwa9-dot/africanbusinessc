@@ -143,7 +143,7 @@ const StickyNoteCTA = () => {
                 <h3 className="text-base text-foreground font-light mt-3 mb-2">{e.title}</h3>
                 <p className="font-sans text-xs text-foreground/40">{e.date}</p>
                 <p className="font-sans text-[10px] text-foreground/30">{e.location}</p>
-                <Link to="/programs" className="mt-3 inline-block text-primary font-sans text-xs font-medium">Register →</Link>
+                <Link to="/admissions" className="mt-3 inline-block text-primary font-sans text-xs font-medium">Register →</Link>
               </div>
             ))}
           </div>
@@ -208,7 +208,7 @@ const StickyNoteCTA = () => {
             </div>
             <div className="border-t border-primary-foreground/20 pt-5 flex items-center justify-between">
               <span className="font-sans text-xs font-medium opacity-70">Next cohort starts September 2026</span>
-              <Link to="/programs" className="inline-flex items-center gap-2 font-sans font-semibold text-xs hover:gap-3 transition-all duration-300">
+              <Link to="/admissions" className="inline-flex items-center gap-2 font-sans font-semibold text-xs hover:gap-3 transition-all duration-300">
                 Apply Now <ArrowRight size={16} />
               </Link>
             </div>
