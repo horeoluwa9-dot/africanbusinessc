@@ -208,7 +208,7 @@ const StickyNoteCTA = () => {
             </div>
             <div className="border-t border-primary-foreground/20 pt-5 flex items-center justify-between">
               <span className="font-sans text-xs font-medium opacity-70">Next cohort starts September 2026</span>
-              <Link to="/programs" className="inline-flex items-center gap-2 font-sans font-semibold text-xs hover:gap-3 transition-all duration-300">
+              <Link to="/admissions" className="inline-flex items-center gap-2 font-sans font-semibold text-xs hover:gap-3 transition-all duration-300">
                 Apply Now <ArrowRight size={16} />
               </Link>
             </div>

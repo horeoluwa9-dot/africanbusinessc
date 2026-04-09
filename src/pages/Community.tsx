@@ -35,7 +35,7 @@ const Community = () => (
           ABC is more than a learning platform. It's a network of entrepreneurs, professionals, and leaders building across Africa.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/programs" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105">
+          <Link to="/admissions" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105">
             Apply Now
           </Link>
           <Link to="/programs" className="border border-foreground/20 text-foreground px-7 py-3 rounded-full font-sans font-medium text-sm transition-all duration-300 hover:border-foreground/50">
@@ -206,7 +206,7 @@ const Community = () => (
         </h2>
         <p className="font-sans text-sm text-foreground/60 mb-8">Join the next cohort</p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link to="/programs" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105">
+          <Link to="/admissions" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:scale-105">
             Apply Now
           </Link>
           <Link to="/programs" className="border border-foreground/20 text-foreground px-7 py-3 rounded-full font-sans font-medium text-sm transition-all duration-300 hover:border-foreground/50">
