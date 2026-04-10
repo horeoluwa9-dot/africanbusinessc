@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-abstract.jpg";
+// Hero section
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {

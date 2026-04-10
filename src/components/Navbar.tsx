@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import abcLogo from "@/assets/abc-logo.png";
+import abcLogo from "@/assets/abc-logo-new.png";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const primaryNav = [
   { label: "Programs", href: "/programs" },
@@ -54,7 +55,7 @@ const Navbar = () => {
   }, [location]);
 
   const linkClass = (href: string) =>
-    `px-3.5 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
+    `px-3.5 py-1.5 rounded-full text-sm font-sans font-medium transition-all duration-300 ${
       isRoute(href) ? "bg-foreground text-background" : "text-foreground/70 hover:bg-foreground hover:text-background"
     }`;
 
@@ -63,11 +64,11 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5">
-          <img src={abcLogo} alt="ABC" className="h-9 w-auto" />
+          <img src={abcLogo} alt="ABC" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center gap-0.5 rounded-full px-1.5 py-1 backdrop-blur-lg" style={{ backgroundColor: 'rgba(231,229,228,0.05)' }}>
+        <div className="hidden xl:flex items-center gap-0.5 rounded-full px-1.5 py-1 backdrop-blur-lg border border-foreground/5" style={{ backgroundColor: 'hsl(var(--card) / 0.6)' }}>
           {primaryNav.map((link) => (
             <Link key={link.label} to={link.href} className={linkClass(link.href)}>{link.label}</Link>
           ))}
@@ -82,14 +83,14 @@ const Navbar = () => {
           <div ref={moreRef} className="relative">
             <button
               onClick={() => setMoreOpen(!moreOpen)}
-              className="px-3.5 py-1.5 rounded-full text-xs font-sans font-medium text-foreground/70 hover:bg-foreground hover:text-background transition-all duration-300 flex items-center gap-1"
+              className="px-3.5 py-1.5 rounded-full text-sm font-sans font-medium text-foreground/70 hover:bg-foreground hover:text-background transition-all duration-300 flex items-center gap-1"
             >
-              More <ChevronDown size={12} className={`transition-transform ${moreOpen ? "rotate-180" : ""}`} />
+              More <ChevronDown size={14} className={`transition-transform ${moreOpen ? "rotate-180" : ""}`} />
             </button>
             {moreOpen && (
-              <div className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-foreground/5 bg-card/95 backdrop-blur-xl p-1.5 shadow-xl">
+              <div className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-foreground/10 bg-card backdrop-blur-xl p-1.5 shadow-xl">
                 {moreLinks.map((link) => (
-                  <Link key={link.label} to={link.href} className="block px-3 py-2 rounded-lg text-xs font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
+                  <Link key={link.label} to={link.href} className="block px-3 py-2 rounded-lg text-sm font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 ))}
@@ -103,24 +104,25 @@ const Navbar = () => {
           <div ref={loginRef} className="relative">
             <button
               onClick={() => setLoginOpen(!loginOpen)}
-              className="text-xs font-sans font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 flex items-center gap-1"
+              className="text-sm font-sans font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 flex items-center gap-1"
             >
-              Login <ChevronDown size={12} className={`transition-transform ${loginOpen ? "rotate-180" : ""}`} />
+              Login <ChevronDown size={14} className={`transition-transform ${loginOpen ? "rotate-180" : ""}`} />
             </button>
             {loginOpen && (
-              <div className="absolute top-full right-0 mt-2 w-40 rounded-xl border border-foreground/5 bg-card/95 backdrop-blur-xl p-1.5 shadow-xl">
-                <Link to="/dashboard" className="block px-3 py-2 rounded-lg text-xs font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
+              <div className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-foreground/10 bg-card backdrop-blur-xl p-1.5 shadow-xl">
+                <Link to="/login?role=student" className="block px-3 py-2 rounded-lg text-sm font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
                   Student Login
                 </Link>
-                <Link to="/faculty-dashboard" className="block px-3 py-2 rounded-lg text-xs font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
+                <Link to="/login?role=faculty" className="block px-3 py-2 rounded-lg text-sm font-sans text-foreground/70 hover:bg-foreground/5 hover:text-foreground transition-colors">
                   Faculty Login
                 </Link>
               </div>
             )}
           </div>
+          <ThemeToggle />
           <Link
             to="/admissions"
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-xs font-sans font-semibold transition-all duration-300 hover:scale-105"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-sans font-semibold transition-all duration-300 hover:scale-105"
           >
             Apply Now
           </Link>
@@ -134,7 +136,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="xl:hidden mt-3 rounded-2xl p-5 backdrop-blur-xl" style={{ backgroundColor: 'rgba(28,25,23,0.95)' }}>
+        <div className="xl:hidden mt-3 rounded-2xl p-5 backdrop-blur-xl border border-foreground/10 bg-card/95">
           <div className="flex flex-col gap-1">
             {allMobileLinks.map((link) => (
               <Link
@@ -147,9 +149,12 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="mt-3 pt-3 border-t border-foreground/10 flex flex-col gap-2">
-              <Link to="/dashboard" className="text-center text-xs font-sans text-foreground/60" onClick={() => setMobileOpen(false)}>Student Login</Link>
-              <Link to="/faculty-dashboard" className="text-center text-xs font-sans text-foreground/60" onClick={() => setMobileOpen(false)}>Faculty Login</Link>
-              <Link to="/admissions" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-center text-xs font-sans font-semibold" onClick={() => setMobileOpen(false)}>
+              <Link to="/login?role=student" className="text-center text-sm font-sans text-foreground/60" onClick={() => setMobileOpen(false)}>Student Login</Link>
+              <Link to="/login?role=faculty" className="text-center text-sm font-sans text-foreground/60" onClick={() => setMobileOpen(false)}>Faculty Login</Link>
+              <div className="flex justify-center py-1">
+                <ThemeToggle />
+              </div>
+              <Link to="/admissions" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-center text-sm font-sans font-semibold" onClick={() => setMobileOpen(false)}>
                 Apply Now
               </Link>
             </div>

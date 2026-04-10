@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Mail } from "lucide-react";
-import abcLogo from "@/assets/abc-logo.png";
+import abcLogo from "@/assets/abc-logo-new.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
