@@ -10,10 +10,10 @@ const faculty = [
   { name: "Amina Diallo", role: "Professor of Entrepreneurship", expertise: "Venture Building & Fundraising", industry: "Startups", img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=200" },
   { name: "Yusuf Ibrahim", role: "Professor of Finance", expertise: "African Capital Markets", industry: "Investment", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" },
   { name: "Ngozi Okafor", role: "Professor of Innovation", expertise: "EdTech & Digital Transformation", industry: "Technology", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" },
-  { name: "Samuel Okonkwo", role: "Professor of Operations", expertise: "Supply Chain & Logistics", industry: "Manufacturing", initials: "SO" },
-  { name: "Fatima Al-Hassan", role: "Professor of Leadership", expertise: "Social Impact & Policy", industry: "Non-Profit", initials: "FA" },
-  { name: "Jean-Pierre Mbeki", role: "Adjunct Professor", expertise: "Private Equity & Venture Capital", industry: "Investment", initials: "JM" },
-  { name: "Aisha Mohammed", role: "Mentor-in-Residence", expertise: "Digital Commerce & Growth", industry: "E-Commerce", initials: "AM" },
+  { name: "Samuel Okonkwo", role: "Professor of Operations", expertise: "Supply Chain & Logistics", industry: "Manufacturing", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" },
+  { name: "Fatima Al-Hassan", role: "Professor of Leadership", expertise: "Social Impact & Policy", industry: "Non-Profit", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" },
+  { name: "Jean-Pierre Mbeki", role: "Adjunct Professor", expertise: "Private Equity & Venture Capital", industry: "Investment", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200" },
+  { name: "Aisha Mohammed", role: "Mentor-in-Residence", expertise: "Digital Commerce & Growth", industry: "E-Commerce", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" },
 ];
 
 const expertiseAreas = ["Entrepreneurship", "Venture Capital", "Finance", "Technology", "Strategy", "Policy"];
