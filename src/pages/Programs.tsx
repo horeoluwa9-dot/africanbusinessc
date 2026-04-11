@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Clock, Users, BookOpen, Check, Star, Calendar, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
-import heroImg from "@/assets/showcase-1.jpg";
+import heroImg from "@/assets/elearning-hero.png";
 
 const categories = ["All", "Entrepreneurship", "Finance", "Technology", "Leadership", "Strategy"];
 
@@ -96,7 +96,7 @@ const Programs = () => {
                 <h3 className="text-lg text-foreground font-light mb-1.5">{program.title}</h3>
                 <p className="text-foreground/50 font-sans text-xs mb-3">{program.desc}</p>
                 <p className="font-sans text-[10px] text-foreground/40 mb-4">{program.duration}</p>
-                <Link to="/programs" className="inline-flex items-center gap-1.5 text-primary font-sans text-xs font-medium group-hover:gap-2.5 transition-all duration-300">
+                <Link to={`/programs/${program.title.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="inline-flex items-center gap-1.5 text-primary font-sans text-sm font-medium group-hover:gap-2.5 transition-all duration-300">
                   Explore Program <ArrowRight size={14} />
                 </Link>
               </div>

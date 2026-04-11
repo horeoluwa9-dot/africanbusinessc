@@ -8,6 +8,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Programs from "./pages/Programs.tsx";
+import ProgramCategory from "./pages/ProgramCategory.tsx";
+import CourseDetail from "./pages/CourseDetail.tsx";
 import Learning from "./pages/Learning.tsx";
 import SimulationLabs from "./pages/SimulationLabs.tsx";
 import Faculty from "./pages/Faculty.tsx";
@@ -39,6 +41,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/programs" element={<Programs />} />
+            <Route path="/programs/:programSlug" element={<ProgramCategory />} />
+            <Route path="/programs/:programSlug/:courseSlug" element={<CourseDetail />} />
             <Route path="/learning" element={<Learning />} />
             <Route path="/simulation-labs" element={<SimulationLabs />} />
             <Route path="/faculty" element={<Faculty />} />
@@ -54,7 +58,6 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<StudentDashboard />} />
             <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

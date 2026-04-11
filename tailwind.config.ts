@@ -14,8 +14,20 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Newsreader", "serif"],
-        sans: ["Instrument Sans", "sans-serif"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+        sans: ["DM Sans", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        'hero': ['64px', { lineHeight: '1.1', fontWeight: '700' }],
+        'section': ['48px', { lineHeight: '1.15', fontWeight: '600' }],
+        'card-title': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+        'nav': ['15px', { lineHeight: '1.5', fontWeight: '400' }],
+        'body': ['16px', { lineHeight: '1.8', fontWeight: '400' }],
+        'label': ['12px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0.12em' }],
+        'btn': ['15px', { lineHeight: '1.5', fontWeight: '500' }],
+        'footer': ['14px', { lineHeight: '1.6', fontWeight: '400' }],
+        'stat': ['52px', { lineHeight: '1.1', fontWeight: '700' }],
+        'stat-label': ['14px', { lineHeight: '1.5', fontWeight: '400' }],
       },
       colors: {
         border: "hsl(var(--border))",

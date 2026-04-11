@@ -208,8 +208,8 @@ const Admissions = () => {
               <div className="space-y-4">
                 <div>
                   <label className="font-sans text-[10px] text-foreground/40">Select Program *</label>
-                  <select required value={formData.program} onChange={(e) => setFormData({...formData, program: e.target.value})} className="w-full mt-1 px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/5 text-xs font-sans text-foreground outline-none focus:border-primary/30">
-                    <option value="">Choose a program</option>
+                  <select required value={formData.program} onChange={(e) => setFormData({...formData, program: e.target.value})} className="w-full mt-1 px-3 py-2 rounded-lg bg-card border border-border text-sm font-sans text-foreground outline-none focus:border-primary/30 appearance-none" style={{ colorScheme: 'auto' }}>
+                    <option value="" className="bg-card text-foreground">Choose a program</option>
                     <option>Entrepreneurship</option>
                     <option>Venture Building</option>
                     <option>Digital Business</option>
@@ -307,7 +307,7 @@ const Admissions = () => {
               Thank you for applying to Africa Business College. Our admissions team will review your application and get back to you shortly.
             </p>
             <div className="space-y-2 text-left mb-6">
-              {["Application review in progress", "You will receive an email update", "Next steps will be shared if selected"].map((s) => (
+              {["Application review in progress", "You will receive an email update", "Next steps will be shared after your application is reviewed"].map((s) => (
                 <div key={s} className="flex items-center gap-2">
                   <Check size={12} className="text-primary shrink-0" />
                   <span className="font-sans text-[10px] text-foreground/50">{s}</span>
