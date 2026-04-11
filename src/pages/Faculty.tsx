@@ -73,13 +73,7 @@ const Faculty = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {filtered.map((f) => (
               <div key={f.name} className="border border-foreground/5 rounded-2xl p-5 bg-card transition-all duration-300 hover:border-primary/20 group">
-                {f.img ? (
-                  <img src={f.img} alt={f.name} className="w-16 h-16 rounded-full mb-3 object-cover" loading="lazy" />
-                ) : (
-                  <div className="w-16 h-16 rounded-full bg-muted border border-foreground/5 mb-3 flex items-center justify-center">
-                    <span className="font-serif text-lg text-foreground/40">{f.initials}</span>
-                  </div>
-                )}
+                <img src={f.img} alt={f.name} className="w-16 h-16 rounded-full mb-3 object-cover" loading="lazy" />
                 <h3 className="text-base text-foreground font-light">{f.name}</h3>
                 <p className="font-sans text-[10px] text-primary font-medium">{f.role}</p>
                 <p className="font-sans text-xs text-foreground/40 mt-1">{f.expertise}</p>
